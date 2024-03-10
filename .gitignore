@@ -1,9 +1,10 @@
-HELP.md
+# Java build artifacts
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# IDE-specific files
 ### STS ###
 .apt_generated
 .classpath
@@ -29,5 +30,5 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+# Visual Studio Code
 .vscode/
