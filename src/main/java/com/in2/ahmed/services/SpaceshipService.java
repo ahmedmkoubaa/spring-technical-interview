@@ -75,7 +75,7 @@ public class SpaceshipService {
      * @throws SpaceshipAlreadyExistsException if a spaceship with the same ID already exists
      */
     public SpaceshipDTO createSpaceship(SpaceshipDTO spaceshipDTO) {
-        if (spaceshipRepository.existsById(spaceshipDTO.getId())) {
+        if (spaceshipDTO.getId() != null && spaceshipRepository.existsById(spaceshipDTO.getId())) {
             throw new SpaceshipAlreadyExistsException("Spaceship with ID " + spaceshipDTO.getId() + " already exists.");
         }
 
