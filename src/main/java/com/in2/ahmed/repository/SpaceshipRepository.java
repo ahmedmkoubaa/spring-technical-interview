@@ -5,9 +5,19 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+/**
+ * Repository interface for performing CRUD operations on Spaceship entities.
+ */
 @Repository
 public interface SpaceshipRepository extends MongoRepository<Spaceship, String> {
 
-    // Define the method to find spaceships by name containing a certain value
+    /**
+     * Finds spaceships by name containing the specified value.
+     *
+     * @param name     the name value to search for
+     * @param pageable the pagination information
+     * @return a page of spaceships matching the criteria
+     */
     Page<Spaceship> findByNameContaining(String name, Pageable pageable);
 }

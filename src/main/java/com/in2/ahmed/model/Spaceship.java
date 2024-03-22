@@ -1,13 +1,15 @@
 package com.in2.ahmed.model;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Represents a Spaceship entity.
+ */
 @Document(collection = "spaceships")
 public class Spaceship {
     @Id
@@ -22,10 +24,25 @@ public class Spaceship {
     @Field
     private List<String> movies;
 
+    /**
+     * Constructs a Spaceship object with the given id and name.
+     * Initializes series and movies as empty lists.
+     *
+     * @param id   the id of the spaceship
+     * @param name the name of the spaceship
+     */
     public Spaceship(String id, String name) {
         this(id, name, new ArrayList<>(), new ArrayList<>());
     }
 
+    /**
+     * Constructs a Spaceship object with the given id, name, series, and movies.
+     *
+     * @param id     the id of the spaceship
+     * @param name   the name of the spaceship
+     * @param series the series associated with the spaceship
+     * @param movies the movies associated with the spaceship
+     */
     public Spaceship(String id, String name, List<String> series, List<String> movies) {
         this.id = id;
         this.name = name;
@@ -33,14 +50,23 @@ public class Spaceship {
         this.movies = new ArrayList<>(movies);
     }
 
+    /**
+     * Default constructor. Initializes id, name, series, and movies as null or empty lists.
+     */
     public Spaceship() {
         this(null, null, new ArrayList<>(), new ArrayList<>());
     }
 
+    /**
+     * Copy constructor. Creates a new Spaceship object with the same properties as the given spaceship.
+     *
+     * @param spaceship the spaceship to copy
+     */
     public Spaceship(Spaceship spaceship) {
         this(spaceship.getId(), spaceship.getName(), spaceship.getSeries(), spaceship.getMovies());
     }
 
+    // Getters and setters
     public String getId() {
         return id;
     }
